@@ -1,5 +1,9 @@
 package de.vanclausen;
 
+import de.vanclausen.model.Dice;
+import de.vanclausen.model.DiceColor;
+import de.vanclausen.model.DiceCup;
+
 import java.util.Arrays;
 
 public class Main {

@@ -1,4 +1,4 @@
-package de.vanclausen;
+package de.vanclausen.model;
 
 import java.util.concurrent.ThreadLocalRandom;
 
