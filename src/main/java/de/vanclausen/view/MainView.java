@@ -7,11 +7,11 @@ import java.awt.*;
 public class MainView extends JFrame {
 
   private final JPanel resultView;
-  private final JPanel diceCupView;
+//  private final JPanel diceCupView;
 //  private JButton jButton;
 
 
-  public MainView(ResultView resultView, DiceCupView diceCupView) {
+  public MainView(ResultView resultView) {
     setTitle( "Dice" );
     setSize( 500, 700 );
     setLayout( new FlowLayout(FlowLayout.CENTER, 0, 0) );
@@ -24,8 +24,8 @@ public class MainView extends JFrame {
 //    resultView.setBorder( new LineBorder( Color.BLACK ) );
     resultView.setPreferredSize( new Dimension(500, 550) );
 
-    this.diceCupView = diceCupView;
-    diceCupView.setBackground( Color.gray );
+//    this.diceCupView = diceCupView;
+//    diceCupView.setBackground( Color.gray );
 
     add( resultView );
 //    add( diceCupView );

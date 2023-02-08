@@ -12,8 +12,8 @@ public class Main {
 
     DiceCup diceCup = new DiceCup( 1, 6, DiceColor.WHITE );
     ResultView resultView = new ResultView(diceCup);
-    DiceCupView diceCupView = new DiceCupView(diceCup);
-    MainView mainView = new MainView( resultView, diceCupView );
+//    DiceCupView diceCupView = new DiceCupView(diceCup);
+    MainView mainView = new MainView( resultView );
     Controller controller = new Controller(diceCup, mainView, resultView );
 
 
