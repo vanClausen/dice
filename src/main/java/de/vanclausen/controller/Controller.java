@@ -18,6 +18,8 @@ public class Controller {
   private JButton rollDiceButton;
   private JButton clearDiceButton;
   private JButton addDiceButton;
+  private JComboBox colorChoice;
+  private JComboBox sideChoice;
   private final ButtonActions buttonActions = new ButtonActions();
 
   public Controller( DiceCup diceCup, MainView mainView, ResultView resultView ) {
@@ -26,33 +28,56 @@ public class Controller {
     this.mainView = mainView;
     this.resultView = resultView;
 
-    rollDiceButton = new JButton( "Roll dice" );
+    int buttonWidth = 150;
+    int buttonHeight = 50;
+
+    rollDiceButton = new JButton( "Roll Dice" );
     rollDiceButton.setBorder( new LineBorder( Color.BLACK, 2, true ) );
     rollDiceButton.setBackground( Color.WHITE );
     rollDiceButton.setForeground( Color.BLACK );
     rollDiceButton.setFont( new Font( Font.SANS_SERIF, Font.BOLD, 15 ) );
-    rollDiceButton.setPreferredSize( new Dimension( 120, 50 ) );
+    rollDiceButton.setPreferredSize( new Dimension( buttonWidth, buttonHeight ) );
     rollDiceButton.addActionListener( buttonActions );
 
-    clearDiceButton = new JButton( "Remove all dice" );
+    clearDiceButton = new JButton( "Reset Dice Cup" );
     clearDiceButton.setBorder( new LineBorder( Color.BLACK, 2, true ) );
     clearDiceButton.setBackground( Color.WHITE );
     clearDiceButton.setForeground( Color.BLACK );
     clearDiceButton.setFont( new Font( Font.SANS_SERIF, Font.BOLD, 15 ) );
-    clearDiceButton.setPreferredSize( new Dimension( 120, 50 ) );
+    clearDiceButton.setPreferredSize( new Dimension( buttonWidth, buttonHeight ) );
     clearDiceButton.addActionListener( buttonActions );
 
-    addDiceButton = new JButton( "Add dice" );
+    addDiceButton = new JButton( "Add Dice" );
     addDiceButton.setBorder( new LineBorder( Color.BLACK, 2, true ) );
     addDiceButton.setBackground( Color.WHITE );
     addDiceButton.setForeground( Color.BLACK );
     addDiceButton.setFont( new Font( Font.SANS_SERIF, Font.BOLD, 15 ) );
-    addDiceButton.setPreferredSize( new Dimension( 120, 50 ) );
+    addDiceButton.setPreferredSize( new Dimension( buttonWidth, buttonHeight ) );
     addDiceButton.addActionListener( buttonActions );
+
+    JLabel newDiceColor = new JLabel("New Dice Color: ");
+
+    colorChoice = new JComboBox();
+    for ( DiceColor color : DiceColor.class.getEnumConstants() ) {
+      colorChoice.addItem( color );
+    }
+    colorChoice.setSelectedItem( DiceColor.WHITE );
+
+    JLabel newDiceSides = new JLabel("New Dice Sides: ");
+
+    sideChoice = new JComboBox();
+    for ( int i = 1; i <= 20; i++ ) {
+      sideChoice.addItem( i );
+    }
+    sideChoice.setSelectedItem( 6 );
 
     mainView.add( rollDiceButton );
     mainView.add( clearDiceButton );
     mainView.add( addDiceButton );
+    mainView.add( newDiceColor );
+    mainView.add( colorChoice );
+    mainView.add( newDiceSides );
+    mainView.add( sideChoice );
 
     mainView.setLocationRelativeTo( null );
     mainView.setVisible( true );
@@ -73,7 +98,7 @@ public class Controller {
         resultView.updateUI();
       }
       if ( e.getSource().equals( addDiceButton ) ) {
-        diceCup.addDice( 6 , DiceColor.WHITE );
+        diceCup.addDice( ( int ) sideChoice.getSelectedItem(), ( DiceColor ) colorChoice.getSelectedItem() );
         resultView.setDiceLabels( diceCup );
         resultView.updateUI();
       }
