@@ -18,8 +18,9 @@ public class DiceCup {
     this.dices.add( new Dice( eyes, diceColor ) );
   }
 
-  public void removeDice( int index ) {
-    this.dices.remove( index );
+  public void removeDice() {
+    this.dices.clear();
+    addDice( 6, DiceColor.WHITE );
   }
 
   public void printDices() {

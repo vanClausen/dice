@@ -10,7 +10,7 @@ import de.vanclausen.view.ResultView;
 public class Main {
   public static void main( String[] args ) {
 
-    DiceCup diceCup = new DiceCup( 8, 6, DiceColor.BLUE );
+    DiceCup diceCup = new DiceCup( 1, 6, DiceColor.WHITE );
     ResultView resultView = new ResultView(diceCup);
     DiceCupView diceCupView = new DiceCupView(diceCup);
     MainView mainView = new MainView( resultView, diceCupView );
