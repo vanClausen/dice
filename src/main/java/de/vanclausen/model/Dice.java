@@ -17,9 +17,8 @@ public class Dice {
     rollDice();
   }
 
-  public DiceColor getDiceColor() {
-    return diceColor;
-  }
+  public DiceColor getDiceColor() { return diceColor; }
+
   public void rollDice () {
     this.result = ThreadLocalRandom.current().nextInt( eyes ) + 1;
   }

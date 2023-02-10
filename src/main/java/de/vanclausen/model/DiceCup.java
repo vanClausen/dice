@@ -8,11 +8,10 @@ public class DiceCup {
 
   private final List<Dice> dices = new ArrayList<>();
 
-  public DiceCup( int dices, int eyes, DiceColor diceColor ) {
-    for ( int i = 0; i < dices; i++ ) {
+  public DiceCup( int amountOfDice, int eyes, DiceColor diceColor ) {
+    for ( int i = 0; i < amountOfDice; i++ ) {
       addDice( eyes, diceColor );
     }
-    ;
   }
 
   public void addDice( int eyes, DiceColor diceColor ) {
@@ -47,6 +46,8 @@ public class DiceCup {
   }
 
   public List<Dice> getDices() {
+    if (dices.size() == 1)
+      return Collections.singletonList( dices.get( 0 ) );
     return List.copyOf( dices );
   }
 
