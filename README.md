@@ -4,7 +4,7 @@
 
 Put some dice in your dice cup and roll them. With very simple GUI.
 
-+ Add as up to 30 dice to your dice cup.
++ Add up to 30 dice to your dice cup.
 
 + Dice can have different colors and different amount of sides ( 1 - 20 ).
 
